@@ -7,4 +7,5 @@ Shortcoming: 1. Do not demonstrate the order of the word
 Method 2: N-grams
 
 Method 3: TF-IDF term frequency- inverse document frequency
-Strength: Highlight some specific question which does not occure that ofthen
+Strength: Highlight some specific question which does not occure that often
+          down-weight terms that appear in many documents and could give better results.
