@@ -2,7 +2,9 @@
 
 ## Text Pre-processing
 drop HTML markup, punctuation, numbers, capitalization, and stopwords
+
 Normalize
+
 remove terms rare terms
 
 
