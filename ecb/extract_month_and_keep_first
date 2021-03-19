@@ -1,0 +1,17 @@
+import re
+test_list=['January', 'February', 'March', 'April', 'May', 'June', 'July',
+          'August', 'September', 'October', 'November', 'December']
+
+get_speech['month']=get_speech['text'].apply(lambda row:[x for x in test_list if x in row])
+get_speech.head()
+
+get_speech.month=get_speech.month.astype('str') 
+get_speech.month = get_speech.month.str.split(',').str[0]
+get_speech.head()
+
+get_speech.month=get_speech.month.apply(lambda row:re.findall(r"'(.*?)'", row))
+
+get_speech.month= get_speech.month.str.get(0)
+
+def get_first_insight(text,want_to_know):
+    return text[want_to_know].value_counts()[:20]
