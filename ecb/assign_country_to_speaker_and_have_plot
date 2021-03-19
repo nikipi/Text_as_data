@@ -1,0 +1,46 @@
+speaker={'Spain':["Pablo",'Linde'],'Germany':["Weidmann"],"Belgium ":["Wunsch","Smets"],'Greece':["Stournaras"],
+       'France':["Galhau"], 'Luxembourg':["Reinesch"],'Austria':["Holzmann","Nowotny"],
+        
+        'Slovakia':["Kayimir",'Jozef'],'Lithuania':["Vasiliauskas"],'Finland':["Rehn"],'Portugal':["Centeno",'Silva Costa'],
+        
+        'Malta':["Vella"],'Slovenia':["Vasle"],'Estonia':["Madis",'Hansson'],'Latvia':["Kazaks",'Rimšēvičs'],'Netherland':['Knot'],
+         'Italy':["Visco"],'Cyprus':["Herodotou","Georghadji"],"Ireland":["Makhlouf",'Lane']}
+
+country_num=dict()
+for each,values in speaker.items():
+    country_num[each]=[]
+ 
+    for value in values:
+        df=get_speech[get_speech['speaker'].str.contains(value)]
+        country_num[each].append(len(df))
+        
+for each,value in country_num.items():
+    country_num[each]=sum(value)
+
+country_num
+
+
+includeKeywords=[]
+for each,values in speaker.items():
+    for value in values:
+        includeKeywords.append(value)
+print(includeKeywords)
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+keys = country_num.keys()
+vals = country_num.values()
+
+plt.style.use('seaborn-white')
+with plt.style.context('ggplot'):
+    plt.figure(figsize=(25,10))
+    plt.bar(keys, vals) 
+    plt.title("Speech Distribution among Countires", fontsize=40,
+                fontstyle='italic', fontweight='bold',
+            )
+    plt.xlabel('Country', fontsize=30)
+    plt.ylabel('Number of Speeches', fontsize=30,fontweight='bold')
+    plt.xticks(fontsize=15)
+    plt.yticks(fontsize=20)
+    
